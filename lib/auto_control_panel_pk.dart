@@ -18,4 +18,13 @@ class Abastecimento {
   double valorPorLitro() {
     return valorTotalPago / litrosAbastecidos;
   }
+
+  double autonomiaMedia(List<Abastecimento> abastecimentos) {
+    double somatorio = 0.0;
+    int amount = abastecimentos.length;
+    for (var abast in abastecimentos) {
+      somatorio += somatorio + abast.autonomia();
+    }
+    return somatorio / amount;
+  }
 }
