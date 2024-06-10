@@ -1,6 +1,7 @@
 library auto_control_panel_pk;
 
 class Abastecimento {
+  String? id;
   double valorTotalPago;
   double litrosAbastecidos;
   int quilometragemRodada;
@@ -26,5 +27,14 @@ class Abastecimento {
       somatorio += somatorio + abast.autonomia();
     }
     return somatorio / amount;
+  }
+
+  static Abastecimento fromMap(String id, Map<String, dynamic> map) {
+    var abast = Abastecimento(
+        valorTotalPago: map['valorTotal'],
+        litrosAbastecidos: map['quantidadeLitros'],
+        quilometragemRodada: map['quilometragemRodada']);
+    abast.id = id;
+    return abast;
   }
 }
